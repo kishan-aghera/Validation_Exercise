@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: user) do |form| %>
+      <% if user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% user.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <br>
+      <h2>Personal Information</h2>
+      <br>
+      <div class="field form-group">
+        <%= form.text_field :first_name, class:"form-control", placeholder:"First Name" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.text_field :email, class:"form-control", placeholder:"Email" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.text_field :phone, class:"form-control", placeholder:"Phone" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.text_field :city, class:"form-control", placeholder:"City" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.text_field :zip_code, class:"form-control", placeholder:"Zip Code" %>
+      </div>
+
+      <br>
+      <br>
+      <h2>Professional Information</h2>
+      <br>
+      
+      <div class="field form-group">
+        <%= form.text_field :designation, class:"form-control", placeholder:"Designation" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.text_field :company, class:"form-control", placeholder:"Company" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.text_field :linkedin_id, class:"form-control", placeholder:"LinkedIn ID" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.text_field :experience, class:"form-control", placeholder:"Experience in Years" %>
+      </div>
+
+      <div class="field form-group">
+        <%= form.text_field :salary, class:"form-control", placeholder:"Annual Salary" %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= form.submit class:"btn btn-primary" %> | 
+        <%= link_to 'Back', users_path, class:"btn btn-dark", style:"color: #FFFFFF" %>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>
+
