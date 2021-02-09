@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_create :normalize_name
+  before_create :downcase_email
   before_create :change_format_of_salary
   validates :first_name, :last_name, :city, :designation, :company, :linkedin_id, presence: true
   validates :email, presence: true, format: { with: /\A([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)\z/, message: "Invalid" }
@@ -14,6 +15,10 @@ class User < ApplicationRecord
       self.last_name = last_name.downcase.titleize
     end
     
+    def downcase_email
+      self.email = email.downcase
+    end
+
     def change_format_of_salary
       self.salary = salary.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
     end
