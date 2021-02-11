@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_114014) do
+ActiveRecord::Schema.define(version: 2021_02_11_121729) do
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_114014) do
     t.string "company"
     t.string "linkedin_id"
     t.integer "experience"
-    t.integer "salary"
+    t.string "salary"
   end
 
 end
